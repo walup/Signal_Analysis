@@ -1,0 +1,29 @@
+classdef IIRFilterer
+    
+    methods
+        
+        function y = applyFilter(x,aCoeffs, bCoeffss) 
+            M = length(a);
+            N = length(b);
+            y = zeros(length(x), 1);
+            for i = max(M,N)+1:length(x)
+               yValue = 0;
+               for j = 1:M
+                  yValue = yValue + b(j)*x(i-j+1); 
+               end
+               
+               for j = 1:N
+                  yValue = yValue + aCoeffs(j)*y(i-j); 
+               end
+            end
+            
+            
+        end
+        
+    end
+    
+    
+    
+    
+    
+end
